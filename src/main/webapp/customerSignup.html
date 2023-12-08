@@ -7,40 +7,40 @@
 </head>
 <body>
     <h1>Welcome to Signup page</h1>
-    <form action="customerSignup">
+    <form action="customerSignup" >
         <label for="cname">
             Customer Name : 
         </label>
-        <input type="text" name="cname" id="cname" placeholder="eg. Arshad" required>
+        <input type="text" name="cname" id="cname" placeholder="eg. Arshad" required="required">
         <br> <br> 
         <label for="mobile">
             Mobile No. :
         </label>
-        <input type="tel" name="mobile" id="mobile" placeholder="eg. 12345678" required>
+        <input type="tel" name="mobile" id="mobile" placeholder="eg. 12345678" required="required">
         <br> <br>
         <label for="pwd">
             Password :  
         </label>
-        <input type="password" name="password" id="pwd" placeholder="eg. rand@123" required>
+        <input type="password" name="password" id="pwd" placeholder="eg. rand@123" required="required">
         <br><br>
 
         <label for="email">
             Email : 
         </label>
-        <input type="email" name="Cemail" id="email" placeholder="eg. abcd@gmail.com" required>
+        <input type="email" name="cus_email" id="email" placeholder="eg. abcd@gmail.com" required="required">
         <br><br>
 
         <label for="">
             Gender
         </label>
-        <input type="radio" name="gender" id="gender" value="male"> Male
-        <input type="radio" name="gender" id="gender" value="female"> female
+        <input type="radio" name="gender" id="gender" value="male" required="required"> Male
+        <input type="radio" name="gender" id="gender" value="female" required="required"> female
         <br> <br>
 
         <label for="dob">
             DOB : 
         </label>
-        <input type="date" name="dob" id="dob" required>
+        <input type="date" name="dob" id="dob" required="required">
         <br><br>
         
         <button type="submit">Sing Up</button>
