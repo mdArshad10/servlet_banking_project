@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,6 +52,17 @@ public class CustomerSignup extends HttpServlet {
 				customer.setMobile(mob);
 
 				customerDao.save(customer);
+
+				// for print the message based on gender
+				List<Customer> list = customerDao.check(cus_email, mob);
+				Customer existCustomer = list.get(0);
+
+				if (existCustomer.getGender().equals("female")) {
+					res.getWriter().print("<h1>welcome Madam, " + " your id is " + existCustomer.getCid() + "</h1");
+				} else {
+					res.getWriter().print("<h1>hello Sir"+ " your id is " + existCustomer.getCid() + "</h1");
+				}
+
 				res.getWriter().print("<h1>Account created successfully</h1");
 
 			} else {

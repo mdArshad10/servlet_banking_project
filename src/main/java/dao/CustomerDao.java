@@ -26,13 +26,18 @@ public class CustomerDao {
 
 		// Method - 1
 		List<Customer> list = entityManager.createQuery("select z from Customer z where email=?1 and mobile=?2")
-				.setParameter(1, email).setParameter(2, mobile).getResultList();
+				.setParameter(1, email)
+				.setParameter(2, mobile)
+				.getResultList();
+
 		// method - 2
-//	Query query = entityManager.createQuery("select z from Customer z where email=?1 and mobile=2?");
-//	query.setParameter(1, email);
-//	 query.setParameter(2, mobile);
-//	List<Customer> list = query.getResultList();
+		// Query query = entityManager.createQuery("select z from Customer z where
+		// email=?1 and mobile=2?");
+		// query.setParameter(1, email);
+		// query.setParameter(2, mobile);
+		// List<Customer> list = query.getResultList();
 		return list;
 
 	}
+
 }
