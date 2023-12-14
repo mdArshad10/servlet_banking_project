@@ -26,9 +26,7 @@ public class CustomerDao {
 
 		// Method - 1
 		List<Customer> list = entityManager.createQuery("select z from Customer z where email=?1 and mobile=?2")
-				.setParameter(1, email)
-				.setParameter(2, mobile)
-				.getResultList();
+				.setParameter(1, email).setParameter(2, mobile).getResultList();
 
 		// method - 2
 		// Query query = entityManager.createQuery("select z from Customer z where
@@ -40,4 +38,9 @@ public class CustomerDao {
 
 	}
 
+	// for login
+	public Customer login(int cusId) {
+		Customer customer = entityManager.find(Customer.class, cusId);
+		return customer;
+	}
 }

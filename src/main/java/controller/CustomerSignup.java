@@ -58,13 +58,13 @@ public class CustomerSignup extends HttpServlet {
 				Customer existCustomer = list.get(0);
 
 				if (existCustomer.getGender().equals("female")) {
-					res.getWriter().print("<h1>welcome Madam, " + " your id is " + existCustomer.getCid() + "</h1");
+					res.getWriter().printf("<h1>welcome Madam, " + " your id is " + existCustomer.getCid() + "</h1");
 				} else {
-					res.getWriter().print("<h1>hello Sir"+ " your id is " + existCustomer.getCid() + "</h1");
+					res.getWriter().printf("<h1>hello Sir"+ " your id is " + existCustomer.getCid() + "</h1");
 				}
 
-				res.getWriter().print("<h1>Account created successfully</h1");
-
+				res.getWriter().printf("<h1>Account created successfully</h1");
+				req.getRequestDispatcher("customerLogin.html").include(req, res);
 			} else {
 				res.getWriter().print("<h1>Credientail are already exist</h1>");
 			}
