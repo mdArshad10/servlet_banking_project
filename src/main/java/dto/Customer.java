@@ -1,12 +1,14 @@
 package dto;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -34,6 +36,10 @@ public class Customer {
 	
 	//	date of birth
 	Date dob;
+	
+	// mapping having done 
+	@OneToMany
+	List<BankAcc> bankAccounts;
 
 	public int getCid() {
 		return cid;
@@ -89,6 +95,14 @@ public class Customer {
 
 	public void setDob(Date dob) {
 		this.dob = dob;
+	}
+
+	public List<BankAcc> getBankAccounts() {
+		return bankAccounts;
+	}
+
+	public void setBankAccounts(List<BankAcc> bankAccounts) {
+		this.bankAccounts = bankAccounts;
 	}
 	
 	
