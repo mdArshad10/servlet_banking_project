@@ -37,6 +37,13 @@ public class CustomerLogin extends HttpServlet {
 			// check the password is right or not
 			if (customer.getPassword().equals(password)) {
 				res.getWriter().print("<h1>login successfully</h1>");
+				
+				// here we add the session
+				// it is use to store or set the data
+				req.getSession().setAttribute("customer", customer);
+				
+				// we redirect the bankAccountType
+				req.getRequestDispatcher("bankAccountType.jsp").include(req, res);
 
 			} else {
 				// if customer id wrong
