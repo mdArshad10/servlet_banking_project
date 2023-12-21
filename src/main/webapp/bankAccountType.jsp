@@ -10,12 +10,14 @@
 </head>
 <body>
     <h1>welcome to Banking Account</h1>
+    
 	<% Customer customer = (Customer) request.getSession().getAttribute("customer"); %>
 	<h1>hello dear : <%= customer.getCname() %></h1>
-    <form action="">
-        <input type="radio" name="accountType" id=""  value="Saving"> Saving Account
+	
+    <form action="createBankAccount">
+        <input type="radio" name="accountType" id=""  value="saving" required="required"> Saving Account
         <br><br>
-        <input type="radio" name="accountType" id=""  value="Current"> Current Account 
+        <input type="radio" name="accountType" id=""  value="current" required="required"> Current Account 
         <br><br>
         <button type="submit">Submit</button>
         <button type="reset">Cancle</button>

@@ -43,4 +43,9 @@ public class CustomerDao {
 		Customer customer = entityManager.find(Customer.class, cusId);
 		return customer;
 	}
+	public void update(Customer customer) {
+		entityTransaction.begin();
+		entityManager.merge(customer);
+		entityTransaction.commit();
+	}
 }

@@ -19,22 +19,16 @@ public class Customer {
 	// here this annotation will be used to 
 	int cid;
 	 
-//	@Column(nullable=false)
 	String cname;
 	
-//	@Column(nullable=false, unique = true)
 	String email;
 	
-//	@Column(nullable=false)
 	String password;
 	
-//	@Column(nullable = false, unique = true)
 	long mobile;
 	
-//	@Column(nullable = false)
 	String gender;
 	
-	//	date of birth
 	Date dob;
 	
 	// mapping having done 
