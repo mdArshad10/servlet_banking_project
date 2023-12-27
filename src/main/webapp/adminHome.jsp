@@ -24,18 +24,22 @@
 			<th>Acccount Status</th>
 			<th>Change status</th>
 		</tr>
-		
-		<% for(BankAcc bankAcc: bankAccList) {%>
+
+		<%
+		for (BankAcc bankAcc : bankAccList) {
+		%>
 		<tr>
-			<th><%= bankAcc.getAccNumber() %></th>
-			<th><%= bankAcc.getAccType() %></th>
-			<th><%= bankAcc.getCustomer().getCname() %></th>
-			<th><%= bankAcc.getCustomer().getCid() %></th>
-			<th> <%= bankAcc.isStatus() %> </th>
-			<th><button> change </button> </th>
-		</tr>	
+			<th><%=bankAcc.getAccNumber()%></th>
+			<th><%=bankAcc.getAccType()%></th>
+			<th><%=bankAcc.getCustomer().getCname()%></th>
+			<th><%=bankAcc.getCustomer().getCid()%></th>
+			<th><%=bankAcc.isStatus()%></th>
+			<th><a href="changeStatus?accNo=<%=bankAcc.getAccNumber()%>"><button>change</button></a></th>
+		</tr>
 		
-	<%} %>
+		<%
+		}
+		%>
 	</table>
 </body>
 </html>

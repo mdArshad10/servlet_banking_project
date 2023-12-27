@@ -43,7 +43,7 @@ public class CustomerLogin extends HttpServlet {
 				req.getSession().setAttribute("customer", customer);
 				
 				// we redirect the bankAccountType
-				req.getRequestDispatcher("bankAccountType.jsp").include(req, res);
+				req.getRequestDispatcher("customerHome.html").include(req, res);
 
 			} else {
 				// if customer id wrong
