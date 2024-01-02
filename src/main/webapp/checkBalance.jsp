@@ -18,6 +18,7 @@
 
 	%>
 	<h1>welcome to the balance page</h1>
+	<%--<h1>Hello </h1> --%>
 	<h2>your account have the <%= bankAcc.getAmount() %></h2>
 </body>
 </html>

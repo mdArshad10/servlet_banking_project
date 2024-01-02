@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.BankDao;
 import dto.BankAcc;
+import dto.BankTranscation;
 
 @WebServlet("/withdrawAmount")
 public class WithdrawAmount extends HttpServlet {
@@ -29,7 +32,7 @@ public class WithdrawAmount extends HttpServlet {
 
 		// check the amount is suffient
 		if (bankAcc.getAmount() < amount) {
-			
+
 			resp.getWriter().print("<h1>insuffient amount present in amount</h1>");
 			req.getRequestDispatcher("accountHome.html").include(req, resp);
 		} else {
@@ -37,8 +40,17 @@ public class WithdrawAmount extends HttpServlet {
 				resp.getWriter().print("<h1>you are limited exceeding</h1>");
 				req.getRequestDispatcher("accountHome.html").include(req, resp);
 			} else {
-				
+
 				bankAcc.setAmount(bankAcc.getAmount() - amount);
+				BankTranscation bankTranscation = new BankTranscation();
+				bankTranscation.setDeposite(0);
+				bankTranscation.setWithdraw(amount);
+				bankTranscation.setBalance(bankAcc.getAmount());
+				bankTranscation.setDateTime(LocalDateTime.now());
+
+				List<BankTranscation> list = bankAcc.getList();
+				list.add(bankTranscation);
+				bankAcc.setList(list);
 
 				bankDao.updateAccountDetail(bankAcc);
 				resp.getWriter().print("<h1>amount deposite successfully</h1>");
