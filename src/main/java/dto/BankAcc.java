@@ -32,8 +32,7 @@ public class BankAcc {
 	Customer customer;
 
 	@OneToMany
-	@Cascade(CascadeType.ALL) // it is used to save the data inside database without using begin, persiste and
-								// merg
+	@Cascade(CascadeType.ALL) // it is used to save the data inside database without using begin, persiste and merg
 	List<BankTranscation> list;
 
 	public long getAccNumber() {
